@@ -4,7 +4,7 @@ Learning Spring Security sur Open class room
 En sécurité sur les applications Web, il existe deux attaques les plus communes : le piratage informatique des données et l'injection de code.
 Un organisme à but lucratif, OWASP (Open Web Application Security Project) a été créé pour informer le publique des attaques à l'encontre des application Web, les étudier et donner des informations sur la manière de les prévenir.
 Les développeurs peuvent utiliser des librairies dédiées à la sécurité, afin de protéger vos applications web.
-Spring Security est un framework garantissant une utilisation facile des application Java, en particulier Spring Boot. Il permet de configurer Spring pour prévenir les attaques en ayant recours à très peu, voire à aucune configuration. 
+Spring Security est un framework garantissant une utilisation facile des application Java, en particulier Spring Boot. Il permet de configurer Spring pour prévenir les attaques en ayant recours à très peu, voire à aucune configuration.
 Spring Security est le module qui gère la sécurité dans les applications Web.
 Une appliication Spring est modulaire et Spring Security en est un module.
 Après l'installation Spring Security, elle a pour objectif première de protéger les requetes Http; pour cela elle propose troix niveaux successifs de protections:
