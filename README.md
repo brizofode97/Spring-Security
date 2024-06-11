@@ -41,4 +41,5 @@ Deux fonctionnalités de sécurisation proposées par Spring Sécurity:
 -Autorisation: permet de vérifier ce que vous pouvez faire (les pages que vous pouvez accéder)
  N.B.: Authentification + Autorisation = Controle d'Accés
        nomUtilisateur + mot de passe = authentification à facteur unique
-       nomUtiisateur + mot de passe + empreintes ou preuve physique 09 un badge = authentification à facteur multiple
+       nomUtiisateur + mot de passe + empreintes ou preuve physique 09 un badge = authentification à facteur multiple.
+Souvent dans les applications Spring Boot, on a des configurations nécessaires comme configurer le controle d'accés basé sur des roles, configurer une authentification basée sur des utilisteurs en base de données.       
