@@ -21,6 +21,7 @@ Quelques définitions :
 -Dans Java, un servlet est un programme qui fonctionne sur votre application web pour traiter les requêtes HTTP entrantes. 
 -Un filtre de servlet est un composant qui peut agir en amont sur la requête reçue par le ou les servlets concernés par le filtre en question. 
 -Une chaîne de filtres est un ensemble de filtres qui se succèdent.
+En effate, le framework Spring Security ajoute trois niveaux de sécurité à Spring Boot. Les trois niveaux de sécurité sont le pare-feu HTTP pour filtrer les requêtes HTTP suspectes, le DelegatingFilterProxy pour envoyer les requêtes HTTP aux bons filtres de sécurité, et la chaîne de filtres de sécurité, qui héberge les configurations de sécurité.
 Explication : 
 Premièrement, le pare-feu HTTP bloque les requêtes suspectes. 
 Deuxièmement, le proxy (DelegatingFilterProxy) prend en charge le reste des requêtes HTTP, et les envoie vers la chaîne de filtres de Spring Security. 
