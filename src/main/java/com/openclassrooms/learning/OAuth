@@ -1,0 +1,69 @@
+I-Keycloack :
+Keycloack est un logiciel open source qui permet la gestion des identités et des accés pour les applications et les services.
+Il permet l'authentification unique SSO(Single Sign-on). I.e. un utilisateur peut se connecter une seule fois sur une application et si sa
+session n'est pas terminée, il peut accéder à une autre application dans le système SSO sans ce connecter à nouveau. C'est l'exemple de
+gmail et drive, c'est deux applications différentes mais lorsqu'on se connecte une première fois sur gmail, on accède sur drive directement
+sans se reconnecter.
+Les principales carastéristiques de keycloack:
+ -Protocoles supportés: il prend en charge divers protocoles standards OpenID Connect, OAuth 2.0 et SAML;
+ -Gestion des utilisateurs: Les administrateurs de l'application peuvent gérer les utilisateurs, les rôles et les permissions directement
+  via l'interface d'administration de Keycloak.
+  -Authentification à Deux Facteurs : Pour une sécurité renforcée, Keycloak offre la possibilité de configurer une authentification
+   à deux facteurs (2FA).
+  -Gestion des Sessions et des Tokens : Keycloak crée et gère des tokens pour des communications sécurisées entre les applications.
+Déploiement de Keycloak
+Keycloak peut être déployé localement ou dans un environnement de production en utilisant Docker.
+Scénario avec keyclock:
+ -Inscription/Connexion:
+  S'il se connecte pour la première fois, il clique sur le bouton "Incrire", on le redirige sur l'interface Keyclock pour qu'il s'inscrit.
+  S'il a déjà un compte, il clique sur connecter, on le redirige sur la page de keycloack pour se connecter.
+ -Utilisation de l'application:
+  Une fois connecté, keyclock fournit à l'application un token qui lui permet d'utiliser les fonctionnalité de l'application.
+N.B: Avec keycloack, on n'a généralement pas besoin une table de gestions des utilisateurs dans notre base de données.
+
+II-OAuth 2.0 :
+OAuth 2.0 est un protocole d'autorisation standard permettant à des applications tièrces d'obtenir un accés limité à des ressouces
+protégées sur un serveur HTTP, sans exposer les informations d'identification des utilisteurs.
+C'est un cadre flexible et robuste pour l'autorisation déléguée. OAuth 2.0 utilise le concept de "scopes" pour définir les autorisations
+que le client peut demander et que l'utilisateur peut accorder.
+Les principes de base:
+-Propriétaire de la ressource(Resource Owner): L'utilisateur qui posséde les données ou les ressources protégées;
+-Client: l'application qui demande la ressource au nom du propriétaire de la ressource;
+-Serveur d'autorisation(Authorization Server): le serveur qui gère l'authentification et délivre les tokens d'accès;
+-Serveur de ressource(Resource Server): Le serveur qui héberge les ressources protégées et vérifie les token pour accorder l'accés aux
+ ressources.
+
+III-OpenIDConnect(OIDC)
+OpenIDConnect est une couche d'identité construite sur le protocole OAuth 2.0. Il permet aux clients de vérifier l'identité en se basant
+sur l'authentification effectuée par un serveur d'authorisation , ainsi que d'obtenir des informations de base sur l'utilisateur d'une
+manière interopérable et RESTful.
+
+N.B. :
+OAuth 2.0 est venu unique pour permettre l'autorisation des applications à des ressources protégées sans intégrer la vérifications pour
+ces applications. Voici ce qu'il fournit: token d'accès(Access Token) et token de rafraichissement(Refresh token).
+OpenID Connect est venu pour ajouter une couche d'identité à OAuth 2.0 afin de permettre une vérification pour les clients et d'avoir
+des informations de profil de base de manière sécurisée. Voici ce qu'il fournit : token d'accés, token de rafraichissement et token
+d'identité(ID token). Ce token ID contient les informations d'identités sur l'utilisateur(claims). Il est signé par le serveur
+d'autorisation et permet aux clients de vérifier l'identité de l'utilisateur de manière sécurisée. Pour valider le Token ID, l'application
+vérifie la signature et les claims du token d'ID en utilisant la clé publique de Google.
+
+Scenario de OAuth 2.0 et OIDC :
+Nous prenons l'exemple de OpenClassroom et Facebook.
+On peut se connecter à notre application OpenClassRoom en passant par facebook. On passe par quatres étapes :
+-On clique sur le bouton facebook et on a une page qui nous demande de fournir nos identifiants facebook;
+-Une fois fourni, on a une page qui vient ou OAuth nous demande d'accepter les autorisations qu'on souhaite fournir à OpenClassRoom;
+-Après avoir accepter, OpenClassRoom reçoit un code d'autorisation qu'il renvoie ce code au serveur d'autorisation à facebook en échange
+ d'un token d'accès qui lui permet de se connecter directement au serveur de facebook;
+-OpenClassRoom se connecte directement au serveur de facebook avec ce token d'accès. Après avoir etre sur que ce token d'accès vient
+de facebook, la connection est validée. Le token d'accés est vérifié ppar e serveur de facebook. Ainsi l'application Web d'openClassRoom
+est ainsi autoriser à accéder aux informations que l'utilisateur lui a fourni en utilisant OAuth et on est authentifié sur OpenClassRoom.
+C'est en ce moment que l'OIDC entre en vigueur car souvent le scope est limité au niveau de fournisseur d'identité, qui est une extension
+de OAuth. En fait, il envoie une requete supplémentaire au serveur d'autorisation de facebook. Et retour OpenClassRoom reçoit un token
+d'identité qui contient les informations demandées. En tant développeur, on doit etre sure sur les informations demandées que si
+ces dernières sont nécessaires.
+N.B. : Un fournisseur d'identité est une application permettant à d'autres applications de s'inscrire ou de s'authentifier à partir
+de son serveur.
+
+N.B. : Les claims sont des informations personnelles de l'utilisateurs.
+       Le scope est l'ensemble des informations qui ont été autorisées.
+
