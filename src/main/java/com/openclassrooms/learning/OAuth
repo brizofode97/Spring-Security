@@ -8,9 +8,9 @@ Les principales carastéristiques de keycloack:
  -Protocoles supportés: il prend en charge divers protocoles standards OpenID Connect, OAuth 2.0 et SAML;
  -Gestion des utilisateurs: Les administrateurs de l'application peuvent gérer les utilisateurs, les rôles et les permissions directement
   via l'interface d'administration de Keycloak.
-  -Authentification à Deux Facteurs : Pour une sécurité renforcée, Keycloak offre la possibilité de configurer une authentification
+ -Authentification à Deux Facteurs : Pour une sécurité renforcée, Keycloak offre la possibilité de configurer une authentification
    à deux facteurs (2FA).
-  -Gestion des Sessions et des Tokens : Keycloak crée et gère des tokens pour des communications sécurisées entre les applications.
+ -Gestion des Sessions et des Tokens : Keycloak crée et gère des tokens pour des communications sécurisées entre les applications.
 Déploiement de Keycloak
 Keycloak peut être déployé localement ou dans un environnement de production en utilisant Docker.
 Scénario avec keyclock:
