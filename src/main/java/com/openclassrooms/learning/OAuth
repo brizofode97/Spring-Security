@@ -1,7 +1,7 @@
 I-Keycloack :
 Keycloack est un logiciel open source qui permet la gestion des identités et des accés pour les applications et les services.
 Il permet l'authentification unique SSO(Single Sign-on). I.e. un utilisateur peut se connecter une seule fois sur une application et si sa
-session n'est pas terminée, il peut accéder à une autre application dans le système SSO sans ce connecter à nouveau. C'est l'exemple de
+session n'est pas terminée, il peut accéder à une autre application dans le système SSO sans se connecter à nouveau. C'est l'exemple de
 gmail et drive, c'est deux applications différentes mais lorsqu'on se connecte une première fois sur gmail, on accède sur drive directement
 sans se reconnecter.
 Les principales carastéristiques de keycloack:
