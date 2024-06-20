@@ -18,7 +18,7 @@ Scénario avec keyclock:
   S'il se connecte pour la première fois, il clique sur le bouton "Incrire", on le redirige sur l'interface Keyclock pour qu'il s'inscrit.
   S'il a déjà un compte, il clique sur connecter, on le redirige sur la page de keycloack pour se connecter.
  -Utilisation de l'application:
-  Une fois connecté, keyclock fournit à l'application un token qui lui permet d'utiliser les fonctionnalité de l'application.
+  Une fois connecté, keyclock fournit à l'application un token qui lui permet d'utiliser les fonctionnalités de l'application.
 N.B: Avec keycloack, on n'a généralement pas besoin une table de gestions des utilisateurs dans notre base de données.
 
 II-OAuth 2.0 :
